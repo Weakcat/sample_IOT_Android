@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
@@ -18,6 +19,8 @@ import com.example.mqttclient.dummy.DummyContent;
 
 import java.util.List;
 
+import static androidx.appcompat.app.AlertDialog.*;
+
 /**
  * An activity representing a list of Items. This activity
  * has different presentations for handset and tablet-size devices. On
@@ -26,7 +29,7 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class ItemListActivity extends AppCompatActivity {
+public class ItemListActivity extends AppCompatActivity implements MQTTService.IGetMessageCallBack {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -34,21 +37,38 @@ public class ItemListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
 
+    private TextView textView;
+
+    private MyServiceConnection serviceConnection;
+    private MQTTService mqttService;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
+        serviceConnection = new MyServiceConnection();
+        Intent intent = new Intent(this, MQTTService.class);
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Repfffflace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                MQTTService.publish("测试dfsd一下子");
+
+
             }
         });
 
@@ -67,6 +87,21 @@ public class ItemListActivity extends AppCompatActivity {
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
+    }
+
+    @Override
+    public void setMessage(String message) {
+        textView.setText(message);
+        mqttService = serviceConnection.getMqttService();
+        mqttService.toCreateNotification(message);
+        AlertDialog alertDialog1 = new Builder(this)
+                .setTitle("这是标题")//标题
+                .setMessage("这是内容")//内容
+                .setIcon(R.mipmap.ic_launcher)//图标
+                .create();
+        alertDialog1.show();
+
+
     }
 
     public static class SimpleItemRecyclerViewAdapter
