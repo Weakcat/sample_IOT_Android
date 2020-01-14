@@ -153,17 +153,20 @@ public class MQTTService extends Service {
         }
     };
 
-    // MQTT监听并且接受消息
+    // MQTT监听并且接受消息//调试成功
     private MqttCallback mqttCallback = new MqttCallback() {
 
         @Override
         public void messageArrived(String topic, MqttMessage message) throws Exception {
             String str1 = new String(message.getPayload());
+            String str2 = topic + ";qos:" + message.getQos() + ";retained:" + message.isRetained();
             if (IGetMessageCallBack != null){
+                Log.i(TAG, "messageArrived:" + str1);
+
                 IGetMessageCallBack.setMessage(str1);
             }
-            String str2 = topic + ";qos:" + message.getQos() + ";retained:" + message.isRetained();
             Log.i(TAG, "messageArrived:" + str1);
+
             Log.i(TAG, str2);
         }
 

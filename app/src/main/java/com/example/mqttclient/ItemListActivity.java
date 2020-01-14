@@ -51,6 +51,8 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
         setContentView(R.layout.activity_item_list);
 
         serviceConnection = new MyServiceConnection();
+        serviceConnection.setIGetMessageCallBack(ItemListActivity.this);
+
         Intent intent = new Intent(this, MQTTService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
@@ -91,12 +93,13 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
 
     @Override
     public void setMessage(String message) {
-        textView.setText(message);
+
+//        textView.setText(message);
         mqttService = serviceConnection.getMqttService();
         mqttService.toCreateNotification(message);
         AlertDialog alertDialog1 = new Builder(this)
-                .setTitle("这是标题")//标题
-                .setMessage("这是内容")//内容
+                .setTitle("MQTT报文")//标题
+                .setMessage(message)//内容
                 .setIcon(R.mipmap.ic_launcher)//图标
                 .create();
         alertDialog1.show();
