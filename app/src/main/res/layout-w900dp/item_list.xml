@@ -15,6 +15,7 @@
     <!--
     This layout is a two-pane layout for the Items
     master/detail flow.
+    主要在这个文件里面做美工
     
     -->
 
@@ -34,6 +35,13 @@
         android:id="@+id/item_detail_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3" />
+        android:layout_weight="3" >
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </FrameLayout>
 
 </LinearLayout>

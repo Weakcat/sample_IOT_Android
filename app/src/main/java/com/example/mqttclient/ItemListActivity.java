@@ -52,15 +52,13 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
 
         serviceConnection = new MyServiceConnection();
         serviceConnection.setIGetMessageCallBack(ItemListActivity.this);
-
         Intent intent = new Intent(this, MQTTService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
+        toolbar.setTitle(getTitle()+"aaa");
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +66,8 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
             public void onClick(View view) {
                 Snackbar.make(view, "Repfffflace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                MQTTService.publish("测试dfsd一下子");
 
+                MQTTService.publish("测试dfsd一下子");
 
             }
         });
@@ -115,7 +113,7 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//监听按下哪个界面
                 DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
