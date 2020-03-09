@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">MQTT Client</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="Fra_1title">基本信息</string>
+    <string name="machine_state">设备使用状况</string>
+    <string name="test_name">张三</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Infor_APP">基于物联网技术上下肢训练康复系统由福建中医药大学研发。可有效改善针对中风、脊髓损伤等疾病导致的上下肢体功能障碍。</string>
 </resources>

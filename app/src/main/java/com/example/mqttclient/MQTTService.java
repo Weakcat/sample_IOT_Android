@@ -4,37 +4,28 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.net.ConnectivityManager;
-
-import android.graphics.BitmapFactory;
 import android.net.NetworkInfo;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.IBinder;
-//import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-
-//import com.google.gson.Gson;
-//import com.google.gson.reflect.TypeToken;
 
 import androidx.core.app.NotificationCompat;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
-
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.JSONObject;
+
+//import android.support.v4.app.NotificationCompat;
+//import com.google.gson.Gson;
+//import com.google.gson.reflect.TypeToken;
 
 //可以创建一个服务来接收MQTT的消息
 
@@ -47,7 +38,7 @@ public class MQTTService extends Service {
     private static MqttAndroidClient client;
     private MqttConnectOptions conOpt;
 
-    private String host = "tcp://49.234.235.161:1883";
+    private String host = "tcp://111.229.83.209:1883";
     private String userName = "yang";
     private String passWord = "yang";
     private static String myTopic = "ForTest";      //要订阅的主题

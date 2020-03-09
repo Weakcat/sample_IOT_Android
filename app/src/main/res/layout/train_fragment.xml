@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrainFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton13"
+            android:layout_gravity="center"
+            android:layout_width="143dp"
+            android:layout_height="216dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/machine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+            <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/name"
+                    android:layout_width="80dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:textSize="16sp"
+                    android:gravity="left|center_vertical"
+                    android:text="姓名："      />
+
+                <TextView
+                    android:id="@+id/name_patient"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_alignTop="@id/name"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/name"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/test_name" />
+
+                <TextView android:id="@+id/sex"
+                    android:layout_width="80dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:layout_below="@id/name"
+                    android:layout_alignLeft="@id/name"
+                    android:textSize="16sp"
+                    android:gravity="left|center_vertical"
+                    android:text="性别："      />
+                <TextView android:id="@+id/sex_patient"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@id/sex"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/sex"
+                    android:gravity="left|center_vertical" />
+
+                <TextView android:id="@+id/age"
+                    android:layout_width="80dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:layout_below="@id/sex"
+                    android:layout_alignLeft="@id/sex"
+                    android:textSize="16sp"
+                    android:gravity="left|center_vertical"
+                    android:text="年龄："      />
+                <TextView android:id="@+id/age_patient"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@id/age"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/age"
+                    android:gravity="left|center_vertical" />
+
+                <TextView android:id="@+id/illness"
+                    android:layout_width="80dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:layout_below="@id/age"
+                    android:layout_alignLeft="@id/age"
+                    android:textSize="16sp"
+                    android:gravity="left|center_vertical"
+                    android:text="疾病："      />
+                <TextView android:id="@+id/illness__patient"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@id/illness"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/illness"
+                    android:gravity="left|center_vertical" />
+
+            </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

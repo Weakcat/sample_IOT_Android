@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StateFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:src="@drawable/machine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="80dp"
+            android:text="@string/machine_state" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageButton
+                    android:id="@+id/imageButton13"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton12"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageButton
+                    android:id="@+id/imageButton14"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton15"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton16"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+
+                <ImageButton
+                    android:id="@+id/imageButton17"
+                    android:layout_width="143dp"
+                    android:layout_height="216dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="118dp" />
+        </TableLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -3,23 +3,25 @@ package com.example.mqttclient;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mqttclient.dummy.DummyContent;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import static androidx.appcompat.app.AlertDialog.*;
+import static androidx.appcompat.app.AlertDialog.Builder;
 
 /**
  * An activity representing a list of Items. This activity
@@ -64,10 +66,10 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Repfffflace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                MQTTService.publish("测试dfsd一下子");
+                MQTTService.publish("测试一下子");
 
             }
         });
@@ -118,11 +120,42 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
-                    ItemDetailFragment fragment = new ItemDetailFragment();
-                    fragment.setArguments(arguments);
-                    mParentActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit();
+                    Log.d("test",item.id);
+                    switch (item.id){
+                        case "1":NewCaseFragment newCaseFragment = new NewCaseFragment();
+                            newCaseFragment.setArguments(arguments);
+                            mParentActivity.getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.item_detail_container, newCaseFragment)
+                                    .commit();
+                            Log.d("test","成功");
+                            break;
+                        case "2":ItemDetailFragment fragment = new ItemDetailFragment();
+                            fragment.setArguments(arguments);
+                            mParentActivity.getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.item_detail_container, fragment)
+                                .commit();
+                            break;
+                        case "3":TrainFragment trainfragment = new TrainFragment();
+                            trainfragment.setArguments(arguments);
+                            mParentActivity.getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.item_detail_container, trainfragment)
+                                    .commit();
+                            break;
+                        case "4":StateFragment statefragment = new StateFragment();
+                            statefragment.setArguments(arguments);
+                            mParentActivity.getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.item_detail_container, statefragment)
+                                    .commit();
+                            Log.d("test","成功");
+                            break;
+                        case "5":InforFragment inforfragment = new InforFragment();
+                            inforfragment.setArguments(arguments);
+                            mParentActivity.getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.item_detail_container, inforfragment)
+                                    .commit();
+                            Log.d("test","成功");
+                            break;
+                    }
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
