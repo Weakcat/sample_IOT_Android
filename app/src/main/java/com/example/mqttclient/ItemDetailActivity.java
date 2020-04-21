@@ -4,16 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 /**
  * An activity representing a single Item detail screen. This
@@ -41,14 +38,14 @@ public class ItemDetailActivity extends AppCompatActivity implements MQTTService
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                MQTTService.publish("测试一下子");
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                MQTTService.publish("测试一下子");
+//            }
+//        });
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -72,7 +69,7 @@ public class ItemDetailActivity extends AppCompatActivity implements MQTTService
             arguments.putString(ItemDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(ItemDetailFragment.ARG_ITEM_ID));
 //            ItemDetailFragment fragment = new ItemDetailFragment();
-            StateFragment fragment = new StateFragment();
+            ItemDetailFragment fragment = new ItemDetailFragment();
 
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -101,13 +98,13 @@ public class ItemDetailActivity extends AppCompatActivity implements MQTTService
     @Override
     public void setMessage(String message) {
 //        textView.setText(message);
-        mqttService = serviceConnection.getMqttService();
-        mqttService.toCreateNotification(message);
-        AlertDialog alertDialog1 = new AlertDialog.Builder(this)
-                .setTitle("收到MQTT报文")//标题
-                .setMessage(message)//内容
-                .setIcon(R.mipmap.ic_launcher)//图标
-                .create();
-        alertDialog1.show();
+//        mqttService = serviceConnection.getMqttService();
+//        mqttService.toCreateNotification(message);
+//        AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+//                .setTitle("收到MQTT报文")//标题
+//                .setMessage(message)//内容
+//                .setIcon(R.mipmap.ic_launcher)//图标
+//                .create();
+//        alertDialog1.show();
     }
 }

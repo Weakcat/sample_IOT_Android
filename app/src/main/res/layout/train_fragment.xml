@@ -9,115 +9,482 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imageButton13"
-            android:layout_gravity="center"
-            android:layout_width="143dp"
-            android:layout_height="216dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/machine" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background_normal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/my_corn"
+                android:gravity="center"
+                android:text="病例详情"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="TextView"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="姓名："
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="年龄："
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="@string/test_name"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/age_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="18"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="性别："
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/illness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="疾病："
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sex_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="男"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/illness__patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="脑出血"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"/>
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-            <com.google.android.material.circularreveal.CircularRevealRelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView android:id="@+id/name"
-                    android:layout_width="80dip"
-                    android:layout_height="40dip"
-                    android:layout_marginRight="5dip"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginBottom="5dip"
-                    android:textSize="16sp"
-                    android:gravity="left|center_vertical"
-                    android:text="姓名："      />
+                <ImageButton
+                    android:id="@+id/imageButton13"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:background="@color/ic_launcher_background"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/machine1" />
 
                 <TextView
-                    android:id="@+id/name_patient"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dip"
-                    android:layout_alignTop="@id/name"
-                    android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@id/name"
-                    android:gravity="left|center_vertical"
-                    android:text="@string/test_name" />
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#039BE5"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="1"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-                <TextView android:id="@+id/sex"
-                    android:layout_width="80dip"
-                    android:layout_height="40dip"
-                    android:layout_marginRight="5dip"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginBottom="5dip"
-                    android:layout_below="@id/name"
-                    android:layout_alignLeft="@id/name"
-                    android:textSize="16sp"
-                    android:gravity="left|center_vertical"
-                    android:text="性别："      />
-                <TextView android:id="@+id/sex_patient"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dip"
-                    android:layout_toRightOf="@id/sex"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/sex"
-                    android:gravity="left|center_vertical" />
 
-                <TextView android:id="@+id/age"
-                    android:layout_width="80dip"
-                    android:layout_height="40dip"
-                    android:layout_marginRight="5dip"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginBottom="5dip"
-                    android:layout_below="@id/sex"
-                    android:layout_alignLeft="@id/sex"
-                    android:textSize="16sp"
-                    android:gravity="left|center_vertical"
-                    android:text="年龄："      />
-                <TextView android:id="@+id/age_patient"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dip"
-                    android:layout_toRightOf="@id/age"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/age"
-                    android:gravity="left|center_vertical" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:orientation="horizontal">
 
-                <TextView android:id="@+id/illness"
-                    android:layout_width="80dip"
-                    android:layout_height="40dip"
-                    android:layout_marginRight="5dip"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginBottom="5dip"
-                    android:layout_below="@id/age"
-                    android:layout_alignLeft="@id/age"
-                    android:textSize="16sp"
-                    android:gravity="left|center_vertical"
-                    android:text="疾病："      />
-                <TextView android:id="@+id/illness__patient"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dip"
-                    android:layout_toRightOf="@id/illness"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/illness"
-                    android:gravity="left|center_vertical" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
 
-            </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:layout_weight="1"
+                    android:background="#E4DDDD"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_blue_dark"
+                        android:paddingLeft="10px"
+                        android:paddingRight="10px"
+                        android:text="训练方案设置"
+                        android:textColor="@color/ic_launcher_background"
+                        android:textSize="25dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="训练模式："
+                                android:textColor="@android:color/holo_blue_dark"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/RTmodel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+
+                                android:layout_weight="5"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/RTmodel1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|top"
+                                    android:layout_weight="1"
+                                    android:button="@drawable/btn_select"
+                                    android:checked="false"
+                                    android:text="主动训练"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+                                <RadioButton
+                                    android:id="@+id/RTmodel2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:button="@drawable/btn_select"
+                                    android:checked="false"
+                                    android:text="被动训练"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+                                <RadioButton
+                                    android:id="@+id/RTmodel3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:button="@drawable/btn_select"
+                                    android:checked="false"
+                                    android:text="助力训练"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="训练强度："
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/RTlevel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:background="@android:drawable/alert_light_frame"
+                            android:ems="2"
+                            android:gravity="center"
+                            android:numeric="integer"
+                            android:text="50"
+                            android:textSize="20dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="RM        "
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="训练时间："
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/RTtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:background="@android:drawable/alert_light_frame"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="秒          "
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="训练速度："
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/RTspeed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="2"
+                            android:background="@android:drawable/alert_light_frame"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:text="米/分钟"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="VR场景设置" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="发送语音提示" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="开始训练"
+                    android:layout_marginRight="20dp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
+
+
+
     </LinearLayout>
+
 </FrameLayout>

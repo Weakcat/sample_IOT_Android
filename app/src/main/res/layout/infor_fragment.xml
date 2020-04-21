@@ -5,9 +5,61 @@
     android:layout_height="match_parent"
     tools:context=".InforFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="基于物联网技术上下肢训练康复系统由福建中医药大学研发。可有效改善针对中风、脊髓损伤等疾病导致的上下肢体功能障碍。" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#00ACC1"
+            android:padding="50dp"
+            android:text="基于物联网技术上下肢训练康复系统由福建中医药大学研发。可有效改善针对中风、脊髓损伤等疾病导致的上下肢体功能障碍。"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="上下肢物联网智能康复训练系统  " />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="版本 Wsxz-V1.0 R3 " />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="系统最后升级时间：2020年3月20日 " />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="咨询电话：22861815 " />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="RESET_DATA" />
+    </LinearLayout>
 
 </FrameLayout>

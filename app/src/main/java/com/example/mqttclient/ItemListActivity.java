@@ -7,10 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,8 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
-
-import static androidx.appcompat.app.AlertDialog.Builder;
 
 /**
  * An activity representing a list of Items. This activity
@@ -39,10 +37,14 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
      */
     private boolean mTwoPane;
 
-    private TextView textView;
+
+    private ImageButton InforButton;
+    private ImageButton MachineButton;
+    private ImageButton PatientButton;
+
+
 
     private MyServiceConnection serviceConnection;
-    private MQTTService mqttService;
 
 
 
@@ -50,7 +52,12 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_item_list);
+
+        InforButton = (ImageButton)findViewById(R.id.inforbutton) ;
+        MachineButton = (ImageButton)findViewById(R.id.machinemanager) ;
+        PatientButton = (ImageButton)findViewById(R.id.painfomanager) ;
 
         serviceConnection = new MyServiceConnection();
         serviceConnection.setIGetMessageCallBack(ItemListActivity.this);
@@ -60,7 +67,7 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle()+"aaa");
+        toolbar.setTitle(getTitle());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +75,6 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
                 MQTTService.publish("测试一下子");
 
             }
@@ -85,27 +91,61 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
+
+        InforButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InforFragment inforfragment = new InforFragment();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.item_detail_container, inforfragment)
+                        .commit();
+
+            }
+        });
+        PatientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewCaseFragment newcasefragment = new NewCaseFragment();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.item_detail_container, newcasefragment)
+                        .commit();
+
+            }
+        });
+        MachineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StateFragment statefragment = new StateFragment();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.item_detail_container, statefragment)
+                        .commit();
+
+            }
+        });
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
-    @Override
+//    @Override
     public void setMessage(String message) {
-
-//        textView.setText(message);
-        mqttService = serviceConnection.getMqttService();
-        mqttService.toCreateNotification(message);
-        AlertDialog alertDialog1 = new Builder(this)
-                .setTitle("MQTT报文")//标题
-                .setMessage(message)//内容
-                .setIcon(R.mipmap.ic_launcher)//图标
-                .create();
-        alertDialog1.show();
-
-
-    }
+//
+////        textView.setText(message);
+//        mqttService = serviceConnection.getMqttService();
+//        mqttService.toCreateNotification(message);
+//        AlertDialog alertDialog1 = new Builder(this)
+//                .setTitle("MQTT报文")//标题
+//                .setMessage(message)//内容
+//                .setIcon(R.mipmap.ic_launcher)//图标
+//                .create();
+//        alertDialog1.show();
+//
+//
+   }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
@@ -120,19 +160,17 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
-                    Log.d("test",item.id);
                     switch (item.id){
-                        case "1":NewCaseFragment newCaseFragment = new NewCaseFragment();
+                        case "4":NewCaseFragment newCaseFragment = new NewCaseFragment();
                             newCaseFragment.setArguments(arguments);
                             mParentActivity.getSupportFragmentManager().beginTransaction()
                                     .replace(R.id.item_detail_container, newCaseFragment)
                                     .commit();
-                            Log.d("test","成功");
                             break;
-                        case "2":ItemDetailFragment fragment = new ItemDetailFragment();
-                            fragment.setArguments(arguments);
+                        case "2":EvaluateFragment evaluateFragment = new EvaluateFragment();
+                            evaluateFragment.setArguments(arguments);
                             mParentActivity.getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.item_detail_container, fragment)
+                                .replace(R.id.item_detail_container, evaluateFragment)
                                 .commit();
                             break;
                         case "3":TrainFragment trainfragment = new TrainFragment();
@@ -141,20 +179,14 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
                                     .replace(R.id.item_detail_container, trainfragment)
                                     .commit();
                             break;
-                        case "4":StateFragment statefragment = new StateFragment();
+                        case "1":StateFragment statefragment = new StateFragment();
                             statefragment.setArguments(arguments);
                             mParentActivity.getSupportFragmentManager().beginTransaction()
                                     .replace(R.id.item_detail_container, statefragment)
                                     .commit();
                             Log.d("test","成功");
                             break;
-                        case "5":InforFragment inforfragment = new InforFragment();
-                            inforfragment.setArguments(arguments);
-                            mParentActivity.getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.item_detail_container, inforfragment)
-                                    .commit();
-                            Log.d("test","成功");
-                            break;
+
                     }
                 } else {
                     Context context = view.getContext();
@@ -174,6 +206,7 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
             mTwoPane = twoPane;
         }
 
+
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
@@ -183,7 +216,8 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
+//            holder.mIdView.setText(mValues.get(position).id);
+
             holder.mContentView.setText(mValues.get(position).content);
 
             holder.itemView.setTag(mValues.get(position));
@@ -196,12 +230,12 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
+//            final TextView mIdView;
             final TextView mContentView;
-
+            //final ImageView mImageView;
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
+                //mImageView = (ImageView) view.findViewById(R.id.imageView);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
         }

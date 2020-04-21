@@ -23,7 +23,7 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 5;
+    private static final int COUNT = 4;
 
     static {
         // Add some sample items.
@@ -39,11 +39,11 @@ public class DummyContent {
 
     private static DummyItem createDummyItem(int position) {
         switch(position){
-            case 1:         return new DummyItem(String.valueOf(position), "新建病例： ", makeDetails(position));
-            case 2:         return new DummyItem(String.valueOf(position), "功能评估： ", makeDetails(position));
-            case 3:         return new DummyItem(String.valueOf(position), "功能训练： ", makeDetails(position));
-            case 4:         return new DummyItem(String.valueOf(position), "数据管理： ", makeDetails(position));
-            case 5:         return new DummyItem(String.valueOf(position), "系统说明： ", makeDetails(position));
+            case 1:         return new DummyItem(String.valueOf(position), "治疗首页", makeDetails(position));
+            case 2:         return new DummyItem(String.valueOf(position), "功能评估", makeDetails(position));
+            case 3:         return new DummyItem(String.valueOf(position), "康复训练", makeDetails(position));
+            case 4:         return new DummyItem(String.valueOf(position), "统计分析", makeDetails(position));
+            //case 5:         return new DummyItem(String.valueOf(position), "系统说明", makeDetails(position));
         };
         return new DummyItem(String.valueOf(position), "NOTHING ", makeDetails(position));
     }

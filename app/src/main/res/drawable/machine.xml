@@ -3,5 +3,5 @@
     <item android:state_pressed="true"
         android:src="@drawable/machine" tools:ignore="ResourceCycle" /> <!-- pressed -->
     <item android:state_focused="true"
-        android:src="@drawable/machine" tools:ignore="ResourceCycle" /> <!-- pressed -->
+        android:src="@mipmap/machine2" tools:ignore="ResourceCycle" /> <!-- pressed -->
 </selector>

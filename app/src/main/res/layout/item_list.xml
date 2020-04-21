@@ -6,8 +6,9 @@
     android:name="com.example.mqttclient.ItemListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
+    android:background="@color/design_default_color_primary"
+
     app:layoutManager="LinearLayoutManager"
     tools:context=".ItemListActivity"
     tools:listitem="@layout/item_list_content" />

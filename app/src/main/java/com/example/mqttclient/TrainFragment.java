@@ -19,7 +19,8 @@ import java.util.ArrayList;
 public class TrainFragment extends Fragment {
 
     private TrainViewModel mViewModel;
-    private TextView textView;
+    private TextView textView,textViewName,textViewSex,textViewAge,textViewIllness;
+    DBOpenHelper data;
 
     //首先还是先声明这个Spinner控件
     private Spinner spinner;
@@ -47,15 +48,23 @@ public class TrainFragment extends Fragment {
         // TODO: Use the ViewModel
         spinner = (Spinner) getView().findViewById(R.id.spinner);
         textView = (TextView) getView().findViewById(R.id.textView);
+        textViewName = (TextView) getView().findViewById(R.id.name_patient);
+        textViewSex = (TextView) getView().findViewById(R.id.sex_patient);
+        textViewAge = (TextView) getView().findViewById(R.id.age_patient);
+        textViewIllness = (TextView) getView().findViewById(R.id.illness__patient);
+
 
         //为dataList赋值，将下面这些数据添加到数据源中
-        ArrayList<String> dataList = new ArrayList<String>();
-        dataList = (ArrayList<String>) mViewModel.numPatient();
+        data = new DBOpenHelper(getActivity(),"hospital.db",null,1);//新建数据库实例
+
+        final ArrayList<String>[] dataList = new ArrayList[]{new ArrayList<String>()};
+
+        dataList[0] = (ArrayList<String>) mViewModel.numPatient(data);
         /*为spinner定义适配器，也就是将数据源存入adapter，这里需要三个参数
         1. 第一个是Context（当前上下文），这里就是this
         2. 第二个是spinner的布局样式，这里用android系统提供的一个样式
         3. 第三个就是spinner的数据源，这里就是dataList*/
-        adapter = new ArrayAdapter<String>(this.getContext(),  android.R.layout.simple_spinner_item, dataList);
+        adapter = new ArrayAdapter<String>(this.getContext(),  android.R.layout.simple_spinner_item, dataList[0]);
 
         //为适配器设置下拉列表下拉时的菜单样式。
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,7 +76,19 @@ public class TrainFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                textView.setText("您当前选择的是："+adapter.getItem(position)+"号病人");
+                String dataTemp;
+                String numberTemp;
+                numberTemp = adapter.getItem(position);
+                textView.setText("您当前选择的是："+numberTemp+"号病人");
+                dataTemp = mViewModel.Patient(data,numberTemp,"name");
+                textViewName.setText(dataTemp);
+                dataTemp = mViewModel.Patient(data,numberTemp,"sex");
+                textViewSex.setText(dataTemp);
+                dataTemp = mViewModel.Patient(data,numberTemp,"age");
+                textViewAge.setText(dataTemp);
+                dataTemp = mViewModel.Patient(data,numberTemp,"illness");
+                textViewIllness.setText(dataTemp);
+
             }
 
             @Override
@@ -76,6 +97,9 @@ public class TrainFragment extends Fragment {
 
             }
         });
+
+
+
 
 
     }

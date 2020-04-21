@@ -55,7 +55,7 @@ public class ItemDetailFragment extends Fragment implements MQTTService.IGetMess
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content+"hashim");//只在竖屏时会显示的title
+                appBarLayout.setTitle(mItem.content);//只在竖屏时会显示的title
             }
         }
     }

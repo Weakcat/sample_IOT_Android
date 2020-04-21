@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="num_patient">000001</string-array>
+    <string-array name="model">
+        <item >主动训练</item>
+        <item >被动训练</item>
+        <item >助力训练</item>
+    </string-array>
 </resources>
