@@ -6,7 +6,8 @@ buildscript {
         jcenter()
         maven {
             url "https://repo.eclipse.org/content/repositories/paho-releases/"
-        }
+            }
+        maven { url "http://www.idescout.com/maven/repo/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.2'

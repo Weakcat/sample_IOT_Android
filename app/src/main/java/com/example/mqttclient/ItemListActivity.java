@@ -161,10 +161,10 @@ public class ItemListActivity extends AppCompatActivity implements MQTTService.I
                     Bundle arguments = new Bundle();
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
                     switch (item.id){
-                        case "4":NewCaseFragment newCaseFragment = new NewCaseFragment();
-                            newCaseFragment.setArguments(arguments);
+                        case "4":StatisticFragment statisticFragment = new StatisticFragment();
+                            statisticFragment.setArguments(arguments);
                             mParentActivity.getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.item_detail_container, newCaseFragment)
+                                    .replace(R.id.item_detail_container, statisticFragment)
                                     .commit();
                             break;
                         case "2":EvaluateFragment evaluateFragment = new EvaluateFragment();

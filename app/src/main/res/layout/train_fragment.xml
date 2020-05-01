@@ -31,33 +31,27 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="TextView"
+                android:textColor="#090808"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="TextView"
-                    android:textSize="20dp" />
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="bottom" />
-
-            </LinearLayout>
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:scrollbarSize="20dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -68,6 +62,7 @@
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="姓名："
+                    android:textColor="#090808"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -79,6 +74,7 @@
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="年龄："
+                    android:textColor="#090808"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -104,7 +100,7 @@
                     android:id="@+id/age_patient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|left"
+                    android:layout_gravity="left"
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="18"
@@ -116,7 +112,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -127,6 +122,7 @@
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="性别："
+                    android:textColor="#090808"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -138,6 +134,7 @@
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="疾病："
+                    android:textColor="#090808"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -152,7 +149,7 @@
                     android:id="@+id/sex_patient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|left"
+                    android:layout_gravity="left"
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="男"
@@ -163,7 +160,7 @@
                     android:id="@+id/illness__patient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|left"
+                    android:layout_gravity="left"
                     android:layout_weight="1"
                     android:gravity="center|left"
                     android:text="脑出血"
@@ -281,7 +278,7 @@
                                     android:layout_gravity="center|top"
                                     android:layout_weight="1"
                                     android:button="@drawable/btn_select"
-                                    android:checked="false"
+                                    android:checked="true"
                                     android:text="主动训练"
                                     android:textSize="20dp"
                                     android:textStyle="bold" />
@@ -333,7 +330,7 @@
                             android:textStyle="bold" />
 
                         <EditText
-                            android:id="@+id/RTlevel"
+                            android:id="@+id/trainLevel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -469,7 +466,7 @@
                     android:text="发送语音提示" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/onofftrain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

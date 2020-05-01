@@ -29,7 +29,7 @@ public class NewCaseFragment extends Fragment {
     private TextView text_age;
     private TextView text_illness;
     DBOpenHelper dbOpenHelper;//声明DBOpenHelper对象
-    private SQLiteDatabase db;
+//    private SQLiteDatabase db;如果不行该这里
 
     // TODO: Use the ViewModel
 
