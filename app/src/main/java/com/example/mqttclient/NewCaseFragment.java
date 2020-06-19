@@ -28,6 +28,13 @@ public class NewCaseFragment extends Fragment {
     private String string_sex;
     private TextView text_age;
     private TextView text_illness;
+    private TextView num1,num2,num3,num4,num5,num6,num7,num8;
+    private TextView nam1,nam2,nam3,nam4,nam5,nam6,nam7,nam8;
+    private TextView sex1,sex2,sex3,sex4,sex5,sex6,sex7,sex8;
+    private TextView age1,age2,age3,age4,age5,age6,age7,age8;
+    private TextView ill1,ill2,ill3,ill4,ill5,ill6,ill7,ill8;
+
+
     DBOpenHelper dbOpenHelper;//声明DBOpenHelper对象
 //    private SQLiteDatabase db;如果不行该这里
 
@@ -53,11 +60,56 @@ public class NewCaseFragment extends Fragment {
         RadioGroup radioSex = (RadioGroup)getView().findViewById(R.id.sex);
         text_age = (EditText) getView().findViewById(R.id.age);  //连接姓名
         text_illness = (EditText) getView().findViewById(R.id.illness);  //
+        num1=(TextView) getView().findViewById(R.id.num1);
+        num2=(TextView) getView().findViewById(R.id.num2);
+        num3=(TextView) getView().findViewById(R.id.num3);
+        num4=(TextView) getView().findViewById(R.id.num4);
+        num5=(TextView) getView().findViewById(R.id.num5);
+        num6=(TextView) getView().findViewById(R.id.num6);
+        num7=(TextView) getView().findViewById(R.id.num7);
+        num8=(TextView) getView().findViewById(R.id.num8);
+
+        nam1=(TextView) getView().findViewById(R.id.nam1);
+        nam2=(TextView) getView().findViewById(R.id.nam2);
+        nam3=(TextView) getView().findViewById(R.id.nam3);
+        nam4=(TextView) getView().findViewById(R.id.nam4);
+        nam5=(TextView) getView().findViewById(R.id.nam5);
+        nam6=(TextView) getView().findViewById(R.id.nam6);
+        nam7=(TextView) getView().findViewById(R.id.nam7);
+        nam8=(TextView) getView().findViewById(R.id.nam8);
+
+        sex1=(TextView) getView().findViewById(R.id.sex1);
+        sex2=(TextView) getView().findViewById(R.id.sex2);
+        sex3=(TextView) getView().findViewById(R.id.sex3);
+        sex4=(TextView) getView().findViewById(R.id.sex4);
+        sex5=(TextView) getView().findViewById(R.id.sex5);
+        sex6=(TextView) getView().findViewById(R.id.sex6);
+        sex7=(TextView) getView().findViewById(R.id.sex7);
+        sex8=(TextView) getView().findViewById(R.id.sex8);
+
+        age1=(TextView) getView().findViewById(R.id.age1);
+        age2=(TextView) getView().findViewById(R.id.age2);
+        age3=(TextView) getView().findViewById(R.id.age3);
+        age4=(TextView) getView().findViewById(R.id.age4);
+        age5=(TextView) getView().findViewById(R.id.age5);
+        age6=(TextView) getView().findViewById(R.id.age6);
+        age7=(TextView) getView().findViewById(R.id.age7);
+        age8=(TextView) getView().findViewById(R.id.age8);
+
+        ill1=(TextView) getView().findViewById(R.id.ill1);
+        ill2=(TextView) getView().findViewById(R.id.ill2);
+        ill3=(TextView) getView().findViewById(R.id.ill3);
+        ill4=(TextView) getView().findViewById(R.id.ill4);
+        ill5=(TextView) getView().findViewById(R.id.ill5);
+        ill6=(TextView) getView().findViewById(R.id.ill6);
+        ill7=(TextView) getView().findViewById(R.id.ill7);
+        ill8=(TextView) getView().findViewById(R.id.ill8);
+
 
         text_illness = (EditText) getView().findViewById(R.id.illness);  //连接疾病
         button_save = (Button) getView().findViewById(R.id.btn_save);             //连接保存按钮
         dbOpenHelper = new DBOpenHelper(getActivity(),"hospital.db",null,1);//新建数据库实例
-
+        display();
 
         radioSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -118,7 +170,11 @@ public class NewCaseFragment extends Fragment {
     }
 
     private void display(){
-
+        num1.setText("test");
+        nam1.setText("test");
+        sex1.setText("sex");
+        age1.setText("age");
+        ill1.setText("ill");
     }
 
 

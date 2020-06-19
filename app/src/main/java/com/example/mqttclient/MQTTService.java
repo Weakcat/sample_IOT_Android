@@ -23,6 +23,8 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.io.UnsupportedEncodingException;
+
 //import android.support.v4.app.NotificationCompat;
 //import com.google.gson.Gson;
 //import com.google.gson.reflect.TypeToken;
@@ -61,7 +63,11 @@ public class MQTTService extends Service {
         Boolean retained = false;
         try {
             if (client != null){
-                client.publish(topic, msg.getBytes(), qos.intValue(), retained.booleanValue());
+                try {
+                    client.publish(topic, msg.getBytes("GBK"), qos.intValue(), retained.booleanValue());
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         } catch (MqttException e) {
             e.printStackTrace();

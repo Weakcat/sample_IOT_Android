@@ -1,5 +1,6 @@
 package com.example.mqttclient;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,11 +32,12 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
 
     private TrainViewModel mViewModel;
     private TextView textView,textViewName,textViewSex,textViewAge,textViewIllness;
-    private Button onOffTrain;
+    private Button onOffTrain,voiceButton;
     private TextView countTime,trainSpeed;
     private TimeCount timeCount;
     private MQTTService mqttService;
     private RadioGroup trainModel;
+    private View trainPage1,trainPage2,trainPage3;
 
     private String dataModel="主动训练";
     private String dataNumber="null";
@@ -46,6 +49,17 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
     private long tempSpeed;
     private long tempTime;
     private long tempCount=0;
+    private TextView voiceText1,voiceText2,voiceText3,voiceText4,voiceText5;
+    private String voiceTemp="加油";
+    private Button voiceSendButton;
+    private RadioGroup getText;
+    private ImageButton changeMachine;
+    private TextView machinID;
+
+
+    private int numberMachinID;
+    private int flagRequest;
+
 
     DBOpenHelper data;
     private DBOpenHelper2 trainData;
@@ -69,6 +83,7 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
         return inflater.inflate(R.layout.train_fragment, container, false);
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -91,7 +106,26 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
         trainSpeed = (TextView)getView().findViewById(R.id.RTspeed);
         trainModel = (RadioGroup)getView().findViewById(R.id.RTmodel);
         trainLevel = (TextView) getView().findViewById(R.id.trainLevel);
+        voiceButton = (Button)getView().findViewById(R.id.button7);
+        trainPage1 = (View)getView().findViewById(R.id.page1);
+        trainPage2=(View)getView().findViewById(R.id.page2);
+        voiceText1 =(TextView) getView().findViewById(R.id.editText1);
+        voiceText2 =(TextView) getView().findViewById(R.id.editText2);
+        voiceText3 =(TextView) getView().findViewById(R.id.editText3);
+        voiceText4 =(TextView) getView().findViewById(R.id.editText4);
+        voiceText5 =(TextView) getView().findViewById(R.id.editText5);
+        voiceSendButton=(Button) getView().findViewById(R.id.button5);
+        changeMachine = (ImageButton)getView().findViewById(R.id.changeMachineButton);
+        machinID = (TextView) getView().findViewById(R.id.machinID);
+        numberMachinID = 1;
+        flagRequest=0;
+
+        getText=(RadioGroup)getView().findViewById(R.id.radiogroup);
+
         onOffTrain.setText("开始训练");
+        voiceButton.setText("语音提示");
+        trainPage1.setVisibility(View.VISIBLE);
+        trainPage2.setVisibility(View.INVISIBLE);
 
         timeCount = new TrainFragment.TimeCount(1200000, 1000);
         //为dataList赋值，将下面这些数据添加到数据源中
@@ -142,13 +176,15 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
         onOffTrain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                trainPage1.setVisibility(View.VISIBLE);
+                trainPage2.setVisibility(View.INVISIBLE);
 
 
                 if(onOffTrain.getText().toString()=="开始训练"){
                     tempSpeed=0;
                     timeCount.start();
                     tempCount=0;
+                    flagRequest=1;
                     onOffTrain.setText("结束训练");
                     dataStrength = Integer.parseInt(trainLevel.getText().toString());
                     trainLevel.setFocusable(false);//设置不可编辑
@@ -158,6 +194,8 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
                 else {
                     dataTime= (int) tempTime;
 //                    tempSpeed= tempSpeed/tempCount;
+                    flagRequest=0;
+
                     dataSpeed= (int) tempSpeed;
                     timeCount.cancel();
                     onOffTrain.setText("开始训练");
@@ -168,6 +206,67 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
 
                 }
 
+            }
+        });
+        voiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                voiceTemp = voiceText1.getText().toString();
+
+                if (voiceButton.getText().toString()=="语音提示"){
+                    trainPage2.setVisibility(View.VISIBLE);
+                    trainPage1.setVisibility(View.INVISIBLE);
+                    onOffTrain.setClickable(false);
+                    voiceButton.setText("退出语音");
+                    timeCount.onFinish();
+
+                }
+                else {
+                    timeCount.onFinish();
+                    onOffTrain.setClickable(true);
+
+                    trainPage1.setVisibility(View.VISIBLE);
+                    trainPage2.setVisibility(View.INVISIBLE);
+                    voiceButton.setText("语音提示");
+                }
+            }
+        });
+        voiceSendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(numberMachinID==1){
+                    MQTTService.publish(voiceTemp+"YH");
+                }else if(numberMachinID==2){
+                    MQTTService.publish(voiceTemp+"YZ1");
+
+                }
+
+                    Snackbar.make(v, "发送语音:"+voiceTemp, Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+            }
+        });
+        getText.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButton1:
+                        voiceTemp=voiceText1.getText().toString();
+                        break;
+                    case R.id.radioButton2:
+                        voiceTemp=voiceText2.getText().toString();
+                        break;
+                    case R.id.radioButton3:
+                        voiceTemp=voiceText3.getText().toString();
+                        break;
+                    case R.id.radioButton4:
+                        voiceTemp=voiceText4.getText().toString();
+                        break;
+                    case R.id.radioButton5:
+                        voiceTemp=voiceText5.getText().toString();
+                        break;
+                }
             }
         });
         trainModel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -186,6 +285,18 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
                 }
             }
         });
+        changeMachine.setOnClickListener(new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                numberMachinID = numberMachinID%8;
+                machinID.setText(Integer.toString(numberMachinID+1));
+                numberMachinID++;
+                changeMachine.setImageResource(R.mipmap.machine2);
+                if(numberMachinID==1)MQTTService.publish("open");
+                if(numberMachinID==2)MQTTService.publish("Zigbee1");
+            }
+
+        });
 
 
 
@@ -195,6 +306,11 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
     @Override
     public void setMessage(String message) {
         String temp;
+        Log.d("may", message);
+
+        if(message.contains("opened")){
+            changeMachine.setImageResource(R.mipmap.machine1);
+        }
         if(message.contains(";")){
             temp=message.split(";")[0];
             tempCount++;
@@ -212,7 +328,7 @@ public class TrainFragment extends Fragment  implements MQTTService.IGetMessageC
         public void onTick(long millisUntilFinished) {
             tempTime=1200-millisUntilFinished/1000;
             countTime.setText(tempTime+" ");
-//            if(tempTime%5==0)
+            if(flagRequest==1)
             MQTTService.publish("request");
 
         }

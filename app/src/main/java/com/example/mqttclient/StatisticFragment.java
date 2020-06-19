@@ -154,6 +154,7 @@ private String myTestXName;
     });
 
         initView();
+
         radioShowChart.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {

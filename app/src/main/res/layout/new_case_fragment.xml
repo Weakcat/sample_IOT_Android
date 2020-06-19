@@ -318,15 +318,6 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center"
-                        android:text="选项"
-                        android:textColor="#0E6092"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
                 </TableRow>
 
 
@@ -343,6 +334,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -351,6 +343,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -359,6 +352,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -367,6 +361,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -375,6 +370,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -382,13 +378,6 @@
                         android:text="脑外伤"
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -404,6 +393,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -412,6 +402,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -420,6 +411,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -428,6 +420,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -436,6 +429,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -443,18 +437,11 @@
                         android:text="脑梗塞"
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -465,6 +452,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -473,6 +461,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -481,6 +470,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -489,6 +479,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -497,6 +488,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -504,13 +496,6 @@
                         android:text="脑出血"
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -526,6 +511,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -534,6 +520,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -541,6 +528,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -549,6 +537,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -556,6 +545,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -563,15 +553,6 @@
                         android:text=" "
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp"
-                        android:visibility="invisible" />
                 </TableRow>
 
                 <TableRow
@@ -587,6 +568,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -595,6 +577,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -603,6 +586,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -611,6 +595,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -619,6 +604,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -626,15 +612,6 @@
                         android:text=" "
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp"
-                        android:visibility="invisible" />
                 </TableRow>
 
                 <TableRow
@@ -650,6 +627,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -658,6 +636,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -666,6 +645,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -674,6 +654,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -682,6 +663,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -689,15 +671,6 @@
                         android:text=" "
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp"
-                        android:visibility="invisible" />
                 </TableRow>
 
                 <TableRow
@@ -713,6 +686,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -721,6 +695,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -729,6 +704,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -737,6 +713,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -745,6 +722,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -752,15 +730,6 @@
                         android:text=" "
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp"
-                        android:visibility="invisible" />
                 </TableRow>
 
                 <TableRow
@@ -776,6 +745,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/num8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -784,6 +754,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/nam8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -792,6 +763,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/sex8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -800,6 +772,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/age8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -808,6 +781,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/ill8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -815,15 +789,6 @@
                         android:text=" "
                         android:textSize="20dp" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="结束治疗"
-                        android:textSize="20dp"
-                        android:visibility="invisible" />
                 </TableRow>
             </TableLayout>
 

@@ -44,7 +44,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
 
-                android:background="@android:drawable/button_onoff_indicator_off"
+                android:background="#728885"
                 android:gravity="bottom" />
 
             <TextView
@@ -129,7 +129,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:button="@drawable/btn_select"
-                        android:checked="false"
+                        android:checked="true"
                         android:clickable="true"
                         android:text="强度"
                         android:textSize="20dp"

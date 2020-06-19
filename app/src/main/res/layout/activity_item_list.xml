@@ -21,13 +21,15 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#00ACC1"
+                android:background="#3CA9C4"
                 android:gravity="left"
                 app:contentInsetLeft="5dp"
                 app:contentInsetRight="10dp"
                 app:logo="@mipmap/ic_launcher_foreground"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:titleMargin="4dp" />
+                app:title="qwe"
+                app:titleMargin="4dp"
+                app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -22,7 +22,7 @@
         android:name="com.example.mqttclient.ItemListFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_light"
+        android:background="#3CA9C4"
 
         app:layoutManager="LinearLayoutManager"
         tools:context="com.example.mqttclient.ItemListActivity"

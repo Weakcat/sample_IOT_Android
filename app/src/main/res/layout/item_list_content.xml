@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="left"
 
-    android:background="@drawable/my_corn"
+    android:background="#3CA9C4"
 
     android:orientation="horizontal">
 
