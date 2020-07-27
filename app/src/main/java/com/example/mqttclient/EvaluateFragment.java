@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 public class EvaluateFragment extends Fragment implements MQTTService.IGetMessageCallBack {
-    Button button1, button2, button3,button4,buttonTemp;
+    Button button4,buttonTemp;
     TextView textRealTimeSpeed,textRealTimeTime;
     private MQTTService mqttService;
 
@@ -49,22 +49,21 @@ public class EvaluateFragment extends Fragment implements MQTTService.IGetMessag
         Intent intent = new Intent(getActivity(), MQTTService.class);
         getActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
         // TODO: Use the ViewModel
-        button1 = (Button)getView().findViewById(R.id.button2);
-        button2 = (Button)getView().findViewById(R.id.button3);
-        button3 = (Button)getView().findViewById(R.id.button4);
+
         button4 = (Button)getView().findViewById(R.id.buttonStartTest);
+        buttonTemp = (Button)getView().findViewById(R.id.button6) ;
         RadioGroup radioRTModel = (RadioGroup)getView().findViewById(R.id.RTmodel);
         final RadioButton radioETModel1 = (RadioButton)getView().findViewById(R.id.ETmodel1);
         final RadioButton radioETModel2 = (RadioButton)getView().findViewById(R.id.ETmodel2);
         final RadioButton radioETModel3 = (RadioButton)getView().findViewById(R.id.ETmodel3);
 
+
         textRealTimeSpeed = (TextView)getView().findViewById(R.id.RTspeed);
         textRealTimeTime = (TextView)getView().findViewById(R.id.RTtime);
 
-        time1 = new TimeCount(180000, 1000);
-        time2 = new TimeCount(600000, 1000);
         time3 = new TimeCount(1200000, 1000);
-
+        buttonTemp.setBackgroundColor(Color.parseColor("#B6B6D8"));
+        buttonTemp.setClickable(false);
         radioRTModel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -82,54 +81,27 @@ public class EvaluateFragment extends Fragment implements MQTTService.IGetMessag
             }
         });
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timeTemp=time1;
-                buttonTemp=button1;
-                button1.setBackgroundColor(Color.parseColor("#B6B6D8"));
-                button1.setClickable(false);
-                button2.setClickable(true);
-                button2.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-                button3.setClickable(true);
-                button3.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timeTemp=time2;
-                buttonTemp=button2;
-                button2.setBackgroundColor(Color.parseColor("#B6B6D8"));
-                button2.setClickable(false);
-                button1.setClickable(true);
-                button1.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-                button3.setClickable(true);
-                button3.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timeTemp=time3;
-                buttonTemp=button3;
-                button3.setBackgroundColor(Color.parseColor("#B6B6D8"));
-                button3.setClickable(false);
-                button2.setClickable(true);
-                button2.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-                button1.setClickable(true);
-                button1.setBackgroundColor(Color.parseColor("#FF33B5E5"));
-            }
-        });
+
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                timeTemp = time3 ;
+
                 timeTemp.start();
                 button4.setBackgroundColor(Color.parseColor("#B6B6D8"));
                 button4.setClickable(false);
-                button3.setClickable(false);
-                button2.setClickable(false);
-                button1.setClickable(false);
+                buttonTemp.setBackgroundColor(Color.parseColor("#FF33B5E5"));
+                buttonTemp.setClickable(true);
+
+            }
+        });
+        buttonTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                timeTemp.onFinish();
+
+
 
             }
         });
@@ -157,15 +129,15 @@ public class EvaluateFragment extends Fragment implements MQTTService.IGetMessag
         @Override
         public void onTick(long millisUntilFinished) {
 
-            textRealTimeTime.setText(millisUntilFinished/1000+" ");
+            textRealTimeTime.setText((1200000 - millisUntilFinished)/1000+" ");
             MQTTService.publish("request");
 
         }
 
         @Override
         public void onFinish() {
-            buttonTemp.setClickable(true);
-            buttonTemp.setBackgroundColor(Color.parseColor("#FF33B5E5"));
+            buttonTemp.setClickable(false);
+            buttonTemp.setBackgroundColor(Color.parseColor("#B6B6D8"));
             button4.setClickable(true);
             button4.setBackgroundColor(Color.parseColor("#FF33B5E5"));
         }

@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import java.util.ArrayList;
+
 public class NewCaseFragment extends Fragment {
 
     private NewCaseViewModel mViewModel;
@@ -33,6 +35,11 @@ public class NewCaseFragment extends Fragment {
     private TextView sex1,sex2,sex3,sex4,sex5,sex6,sex7,sex8;
     private TextView age1,age2,age3,age4,age5,age6,age7,age8;
     private TextView ill1,ill2,ill3,ill4,ill5,ill6,ill7,ill8;
+
+    private int pageNum;
+    DBOpenHelper dataPatient;
+
+    private Button refresh;
 
 
     DBOpenHelper dbOpenHelper;//声明DBOpenHelper对象
@@ -105,6 +112,9 @@ public class NewCaseFragment extends Fragment {
         ill7=(TextView) getView().findViewById(R.id.ill7);
         ill8=(TextView) getView().findViewById(R.id.ill8);
 
+        pageNum = 1;
+
+        refresh = (Button) getView().findViewById(R.id.refresh);
 
         text_illness = (EditText) getView().findViewById(R.id.illness);  //连接疾病
         button_save = (Button) getView().findViewById(R.id.btn_save);             //连接保存按钮
@@ -147,6 +157,18 @@ public class NewCaseFragment extends Fragment {
             }
         });
 
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("temp", "onClick: ");
+                display();
+
+
+
+            }
+        });
+
     }
 
     //存储数据
@@ -170,11 +192,64 @@ public class NewCaseFragment extends Fragment {
     }
 
     private void display(){
+        final ArrayList<String>[] dataList = new ArrayList[]{new ArrayList<String>()};
+        dataPatient = new DBOpenHelper(getActivity(),"hospital.db",null,1);//新建数据库实例
+
+        dataList[0] = (ArrayList<String>) mViewModel.numPatient(dataPatient);
+
+        Log.d("data", dataList[0].toString());
+
+
+
         num1.setText("test");
         nam1.setText("test");
         sex1.setText("sex");
         age1.setText("age");
         ill1.setText("ill");
+
+        num2.setText("test");
+        nam2.setText("test");
+        sex2.setText("sex");
+        age2.setText("age");
+        ill2.setText("ill");
+
+        num3.setText("test");
+        nam3.setText("test");
+        sex3.setText("sex");
+        age3.setText("age");
+        ill3.setText("ill");
+
+        num4.setText("test");
+        nam4.setText("test");
+        sex4.setText("sex");
+        age4.setText("age");
+        ill4.setText("ill");
+
+        num5.setText("test");
+        nam5.setText("test");
+        sex5.setText("sex");
+        age5.setText("age");
+        ill5.setText("ill");
+
+        num6.setText("test");
+        nam6.setText("test");
+        sex6.setText("sex");
+        age6.setText("age");
+        ill6.setText("ill");
+
+        num7.setText("test");
+        nam7.setText("test");
+        sex7.setText("sex");
+        age7.setText("age");
+        ill7.setText("ill");
+
+        num8.setText("test");
+        nam8.setText("test");
+        sex8.setText("sex");
+        age8.setText("age");
+        ill8.setText("ill");
+
+
     }
 
 
